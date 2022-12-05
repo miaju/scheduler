@@ -1,4 +1,4 @@
 {
-  "extends": "react-app",
-  "parser": "babel-eslint"
+  "extends": ["react-app", "plugin:storybook/recommended"],
+  "parser": "@babel/eslint-parser"
 }
