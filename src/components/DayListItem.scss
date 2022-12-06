@@ -21,15 +21,26 @@
     &--selected {
       background-color: darken($white, 5%);
       color: $dark-background;
-      color: #8395a7;
+
       height: 5rem;
       padding-left: 2rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      &--full {
+        background-color: darken($white, 5%);
+        opacity: $inactive-opacity;
+        color: #8395a7;
+        height: 5rem;
+        padding-left: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
 
       &:hover {
-        background-color: darken($white, 5%);
+        cursor: pointer;
+        color: $dark-background;
       }
     }
 
