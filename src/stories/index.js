@@ -7,6 +7,7 @@ import "index.scss";
 
 import Button from "components/Button";
 import DayListItem from "components/DayListItem";
+import DayList from 'components/DayList';
 
 storiesOf("Button", module)
   .addParameters({
@@ -27,7 +28,7 @@ storiesOf("Button", module)
     </Button>
   ));
 
-  storiesOf("DayListItem", module) 
+storiesOf("DayListItem", module) 
   .addParameters({
     backgrounds: {
       default: "dark",
@@ -39,4 +40,39 @@ storiesOf("Button", module)
   .add("Full", () => <DayListItem name="Monday" spots={0} />)
   .add("Clickable", () => (
     <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} /> 
+  ));
+
+const days = [
+  {
+    id: 1,
+    name: "Monday",
+    spots: 2,
+  },
+  {
+    id: 2,
+    name: "Tuesday",
+    spots: 5,
+  },
+  {
+    id: 3,
+    name: "Wednesday",
+      spots: 0,
+    },
+];
+  
+storiesOf("DayList", module)
+  .addParameters({
+    backgrounds: {
+      default: "dark",
+      values: [{ name: "dark", value: "#222f3e"}]
+    }
+  })
+  .add("Monday", () => (
+    <DayList days={days} day={"Monday"} setDay={action("setDay")} />
+  ))
+  .add("Tuesday", () => (
+    <DayList days={days} day={"Tuesday"} setDay={action("setDay")} />
+  ))
+  .add("Wednesday", () => (
+      <DayList days={days} day={"Wednesday"} setDay={action("setDay")} />
   ));
