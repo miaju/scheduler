@@ -10,6 +10,7 @@ import DayListItem from "components/DayListItem";
 import DayList from 'components/DayList';
 import InterviewerListItem from "components/InterviewerListItem";
 import InterviewerList from "components/InterviewerList";
+import Appointment from "components/Appointments/index";
 
 storiesOf("Button", module)
   .addParameters({
@@ -65,8 +66,8 @@ const days = [
 storiesOf("DayList", module)
   .addParameters({
     backgrounds: {
-      default: "dark",
-      values: [{ name: "dark", value: "#222f3e"}]
+      default: 'dark',
+      values: [{ name: 'dark', value: "#222f3e"}]
     }
   })
   .add("Monday", () => (
@@ -148,3 +149,13 @@ storiesOf("InterviewerList", module)
       setInterviewer={action("setInterviewer")}
     />
   ));
+
+storiesOf("Appointment", module)
+  .addParameters({
+    backgrounds: {
+      default: "white", 
+      values: [{name: "white", value: "#fff"}] 
+    }
+  })
+  .add("Appointment", () => <Appointment />)
+  .add("Appointment with Time", () => <Appointment time="12pm" />);
