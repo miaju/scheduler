@@ -2,7 +2,7 @@ import React from 'react';
 import InterviewerListItem from './InterviewerListItem';
 import "components/InterviewerList.scss"
 
-export default function InterviewList(props) {
+export default function InterviewerList(props) {
   const interviewers = props.interviewers.map((inter) => {
     return(
       ((props.interviewer===inter.id) ? 
