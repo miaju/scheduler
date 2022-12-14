@@ -8,8 +8,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-hooks-testing-library": "^0.6.0",
-    "react-scripts": "^5.0.1",
-    "react-test-renderer": "^18.2.0"
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -55,6 +54,7 @@
     "eslint": "^8.29.0",
     "eslint-plugin-storybook": "^0.6.8",
     "prop-types": "^15.8.1",
+    "react-test-renderer": "^16.9.0",
     "sass": "^1.53.0",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
