@@ -45,7 +45,7 @@ export default function Appointment(props) {
     }
     return cancelInterview();
   }
-
+  
   return (
     <article className="appointment">
       <Header time={props.time} />
@@ -68,7 +68,7 @@ export default function Appointment(props) {
         <Form 
           interviewers={props.interviewers} 
           student={props.interview.student} 
-          interviewer={props.interview.interviewer} 
+          interviewer={props.interview.interviewer.id} 
           onCancel={() => transition(SHOW)} 
           onSave={save}
         />
