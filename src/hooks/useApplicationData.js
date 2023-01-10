@@ -10,6 +10,15 @@ export default function useApplicationData() {
     interviewers: {}
   });
 
+  function updateSpots(day, amount) {
+    const dayId = state.days.map(d => d.name).indexOf(day);
+    const spots = state.days[dayId].spots;
+    state.days[dayId] = {
+      ...state.days[dayId],
+      spots: spots + amount
+    }
+  } 
+
   const setDay = day => setState({ ...state, day });
 
   async function bookInterview(id, interview) {
@@ -23,11 +32,13 @@ export default function useApplicationData() {
     };
 
     await axios.put(`api/appointments/${id}`, appointment)
-      .then(response =>
+      .then(response => {
         setState({
           ...state,
           appointments
-        })
+        });
+        updateSpots(state.day, 1);
+      }
       );
   }
 
@@ -43,11 +54,13 @@ export default function useApplicationData() {
     };
 
     await axios.delete(`api/appointments/${id}`, appointment)
-      .then( response =>
+      .then( response =>{
         setState({
           ...state,
           appointments
         })
+        updateSpots(state.day, -1);
+      }
       );
 
   }
