@@ -55,7 +55,7 @@ describe("Form", () => {
   
     /* 2. Render the Form with interviewers and the onSave mock function passed as an onSave prop, the name prop should be blank or undefined */
     const { getByText } = render(
-      <Form interviewers={interviewers} onSave={onSave} name="Lydia Miller-Jones" />
+      <Form interviewers={interviewers} onSave={onSave} student="Lydia Miller-Jones" />
     );
   
     /* 3. Click the save button */
