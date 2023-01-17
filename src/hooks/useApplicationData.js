@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-jest.mock('axios');
 
 export default function useApplicationData() {
 
@@ -34,13 +33,13 @@ export default function useApplicationData() {
 
     await axios.put(`api/appointments/${id}`, appointment)
       .then(response => {
+        updateSpots(state.day, -1);
         setState({
           ...state,
           appointments
         });
-        updateSpots(state.day, 1);
-      }
-      );
+      });
+  
   }
 
   async function cancelInterview(id) {
@@ -56,11 +55,11 @@ export default function useApplicationData() {
 
     await axios.delete(`api/appointments/${id}`, appointment)
       .then( response =>{
+        updateSpots(state.day, 1);
         setState({
           ...state,
           appointments
         })
-        updateSpots(state.day, -1);
       }
       );
 
