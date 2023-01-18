@@ -1,10 +1,10 @@
 import React from "react";
+import axios from "axios";
 
 import { render, cleanup, waitForElement, fireEvent, prettyDOM, getByText, getAllByTestId, getByAltText, getByPlaceholderText, queryByText, queryByAltText} from "@testing-library/react";
 
 import Application from "components/Application";
 
-jest.mock('axios');
 afterEach(cleanup);
 
 describe("Application", () => {
@@ -78,5 +78,39 @@ describe("Application", () => {
     //// problem with resetting the module - should be 2 spots remaining, but previous tests update the state, and so there is 0 spots -> 1 spot instead of 1 spot -> 2 spots
     //// the problem seems (from cursory googling) to be with the cleanup (resetModules) and the ES6 import syntax, but I couldn't figure out how to get require to work 
   });
+
+  it("loads data, edits an interview and keeps the spots remaining for Monday the same", async() => {
+    // 1. render the app
+    const { container, debug } = render(<Application />);
+    
+    // 2. wait until the text "Archie Cohen" is shown
+    await waitForElement(() => getByText(container, "Archie Cohen"));
+    // 3. click the edit button
+    const appointment = getAllByTestId(container, "appointment").find(
+      appointment => queryByText(appointment, "Archie Cohen")
+    );
+    fireEvent.click(queryByAltText(appointment, "Edit"));
+    // 4. check edit element is shown
+    expect(getByPlaceholderText(appointment, /enter student name/i)).toBeInTheDocument();
+    // 5. change name to be "different student"
+    fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
+      target: { value: "Different Student" }
+    });
+    // 6. change interviewer to be "Sylvia Palmer"
+    fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
+    // 7. click save button
+    fireEvent.click(queryByText(appointment, "Save"));
+    // 8. check that element with text "Saving" is shown
+    expect(getByText(appointment, "Saving")).toBeInTheDocument();
+    // 9. wait for element with "Different Student"
+    await waitForElement(() => getByText(appointment, "Different Student"));
+    // 10. check that Check that the DayListItem with the text "Monday" also has the text "1 spot remaining"
+    const day = getAllByTestId(container, "day").find(day =>
+      queryByText(day, "Monday")
+    );
+  
+    expect(getByText(day, "1 spot remaining")).toBeInTheDocument(); 
+
+  })
 })
 
