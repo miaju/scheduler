@@ -61,6 +61,7 @@
     "webpack": "^5.75.0"
   },
   "jest": {
+    "resetMocks": false,
     "watchPathIgnorePatterns": [
       "<rootDir>/node_modules/",
       "<rootDir>/.git/"
