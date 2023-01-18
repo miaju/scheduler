@@ -33,7 +33,9 @@ export default function useApplicationData() {
 
     await axios.put(`api/appointments/${id}`, appointment)
       .then(response => {
-        updateSpots(state.day, -1);
+        if(!(state.appointments[id].interview)){
+          updateSpots(state.day, -1);
+        }
         setState({
           ...state,
           appointments
