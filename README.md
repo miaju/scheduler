@@ -1,5 +1,9 @@
 # Interview Scheduler
 
+## Final Product
+
+!["Final Product"](https://github.com/miaju/scheduler/blob/master/docs/scheduler.mov)
+
 ## Setup
 
 Install dependencies with `npm install`.
