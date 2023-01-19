@@ -1,6 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+// Sets state and makes axios calls in the Application
+// state: {
+//   day: String,
+//   days: Array,
+//   appointments: Object,
+//   interviewers: Object
+// }
+
 export default function useApplicationData() {
 
   const [state, setState] = useState({
@@ -10,6 +18,7 @@ export default function useApplicationData() {
     interviewers: {}
   });
 
+  // updates the spots for the given day by the amount given
   function updateSpots(day, amount) {
     const dayId = state.days.map(d => d.name).indexOf(day);
     const spots = state.days[dayId].spots;
@@ -21,6 +30,7 @@ export default function useApplicationData() {
 
   const setDay = day => setState({ ...state, day });
 
+  // makes an axios put request to book the given interview, replaces existing interview if just editing it
   async function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -44,6 +54,7 @@ export default function useApplicationData() {
   
   }
 
+  // makes an axios delete request to remove the given interview
   async function cancelInterview(id) {
 
     const appointment = {
