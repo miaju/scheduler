@@ -2,6 +2,13 @@ import React from "react";
 import "components/DayListItem.scss";
 import classNames from "classnames";
 
+// Day component in the list of days in the nav bar
+// props: {
+//   selected: Boolean,
+//   spots: Number,
+//   name: String,
+//   setDay: Function
+// }
 export default function DayListItem(props) {
   const formatSpots= function(spots) {
     switch (Number(spots)) {

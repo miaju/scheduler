@@ -6,6 +6,7 @@ import "components/Application.scss";
 import Appointment from "./Appointments";
 import useApplicationData from "hooks/useApplicationData";
 
+// Application component; all state is handled by useApplicationData
 export default function Application(props) {
   const {
     state,
