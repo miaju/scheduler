@@ -4,9 +4,7 @@ import { render, cleanup, fireEvent} from "@testing-library/react";
 
 import Form from "../Appointments/Form";
 
-
 afterEach(cleanup);
-
 
 describe("Form", () => {
   const interviewers = [
