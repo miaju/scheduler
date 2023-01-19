@@ -2,7 +2,6 @@
 
 ## Final Product
 
-!["Final Product"](https://github.com/miaju/scheduler/blob/master/docs/scheduler.mov)
 
 ## Setup
 
