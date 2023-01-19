@@ -1,3 +1,11 @@
+// Componet for showing an interview when it is not null
+// props{
+//   student: String,
+//   interviewer: Object,
+//   onEdit: Function,
+//   onDelete: Function
+// }
+
 export default function Show(props) {
   return (
     <main className="appointment__card appointment__card--show">

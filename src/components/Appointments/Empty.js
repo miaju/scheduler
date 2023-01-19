@@ -1,3 +1,6 @@
+// A view for an open interview time slot
+//props: {onAdd: Function}
+
 export default function Empty(props) {
   return (
     <main className="appointment__add">

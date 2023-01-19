@@ -1,3 +1,9 @@
+// A component to display an error
+// props: {
+//   message: String,
+//   onClose: Function
+// } 
+
 export default function Error(props) {
   return (
     <main className="appointment__card appointment__card--error">

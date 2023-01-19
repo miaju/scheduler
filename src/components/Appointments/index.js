@@ -19,6 +19,14 @@ const EDIT = "EDIT";
 const ERROR_SAVE = "ERROR-SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 
+// Appointment component; uses the other components in the Appointments file
+// props: {
+//   interview: Object || null,
+//   id: Number,
+//   cancelInterview: Function,
+//   time: String,
+//   interviewers: Object,
+// }
 export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY

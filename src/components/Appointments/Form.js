@@ -2,6 +2,17 @@ import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
 import React, { useState } from 'react';
 
+
+// Component for interview form
+// props: {
+//   student: String || null,
+//   interviewer: Object || null,
+//   interviewers: Object,
+//   onCancel: Function,
+//   onSave: Function,
+// }
+// state: [interviewer, student, error]
+
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);

@@ -1,3 +1,5 @@
+// Header component for interview slots, shows time and seperates them
+// props: {time: String}
 
 export default function Header(props) {
   return (
