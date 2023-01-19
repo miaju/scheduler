@@ -1,3 +1,7 @@
+
+// looks for all appointments that are for a given day
+// takes state: Object, dayName: String
+// returns: Array
 export function getAppointmentsForDay(state, dayName) {
   let result = [];
   const day = state.days.filter(day => day.name === dayName)[0];
@@ -9,6 +13,9 @@ export function getAppointmentsForDay(state, dayName) {
   return result;
 }
 
+// returns an interview if it exits
+// takes state: Object, interview: Object
+// returns: Object if interview exists, null otherwise
 export function getInterview(state, interview){
   if (interview) {
     return {
@@ -20,6 +27,9 @@ export function getInterview(state, interview){
 
 }
 
+// returns a list of the available interviewers for the given day
+// takes state: Object, dayName: String
+// returns: Object
 export function getInterviewersForDay(state, dayName) {
   let result = [];
   const day = state.days.filter(day => day.name === dayName)[0];
